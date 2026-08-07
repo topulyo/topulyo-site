@@ -39,6 +39,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
 .journal-section .j-txt{display:flex;flex-direction:column;justify-content:center;padding:0 clamp(36px,5vw,72px)}
 
 .ui-counter{position:fixed;top:40px;right:48px;font-size:10px;font-size:10px;letter-spacing:.15em;color:var(--dim);z-index:100;pointer-events:none;transition:color .3s}
+.touch-nav-hint{position:fixed;top:50%;transform:translateY(-50%);font-size:22px;color:#fff;mix-blend-mode:difference;opacity:0.45;pointer-events:none;z-index:100;display:none}
+@media(hover:none)and(pointer:coarse){.touch-nav-hint{display:block}}
+.touch-nav-hint.right{right:14px}
+.touch-nav-hint.left{left:14px}
 .ui-name{position:fixed;top:40px;left:48px;font-size:10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);z-index:100;pointer-events:none;transition:color .3s}
 .on-dark-ui{color:rgba(245,244,240,.3)!important}
 @media(max-width:640px){
@@ -111,6 +115,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
 <div class="cursor" id="cursor"></div>
 <div class="ui-name" id="uiName">Topu Lyo</div>
 <div class="ui-counter" id="uiCounter">01 / 15</div>
+<div class="touch-nav-hint left">←</div>
+<div class="touch-nav-hint right">→</div>
 <div class="track" id="track">
 
 <!-- 01 TITLE -->
@@ -686,7 +692,7 @@ window.addEventListener('load', buildConvoList);
         if(ds>todayStr)continue;
         const el=document.createElement('span');
         el.textContent=ds;
-        el.style.cssText='font-size:10px;font-size:11px;letter-spacing:.04em;color:#F5F4F0;padding:3px 8px 3px 0;white-space:nowrap;font-weight:300;opacity:0.45;flex-shrink:0;cursor:pointer;transition:opacity .15s';
+        el.style.cssText='font-size:10px;font-size:11px;letter-spacing:.04em;color:#F5F4F0;padding:3px 4px 3px 2px;white-space:nowrap;font-weight:300;opacity:0.45;flex-shrink:0;cursor:pointer;transition:opacity .15s';
         el.addEventListener('mouseenter',function(){this.style.opacity='0.5';this.style.textDecoration='underline';this.style.textUnderlineOffset='3px';});
         el.addEventListener('mouseleave',function(){this.style.opacity='0.45';this.style.textDecoration='none';});
         el.addEventListener('click',e=>{e.stopPropagation();if(typeof openEntry==='function')openEntry(ds);});
