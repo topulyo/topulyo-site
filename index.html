@@ -67,8 +67,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
 .entry-header{padding:32px 48px;border-bottom:1px solid var(--mid);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
 .entry-date-label{font-size:10px;font-size:11px;letter-spacing:.15em;color:var(--ink)}
 .entry-back{background:none;border:none;font-size:10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);cursor:pointer}
-.entry-body{flex:1;overflow-y:auto;display:flex;align-items:flex-start;justify-content:center;padding:48px}
-.entry-body img{max-width:680px;width:100%;height:auto;display:block}
+.entry-body{flex:1;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:48px}
+.entry-body img{max-width:680px;max-height:calc(100vh - 200px);width:auto;height:auto;object-fit:contain;display:block}
 .teach-body{max-width:720px}
 .teach-section{margin-bottom:64px;padding-bottom:64px;border-bottom:1px solid var(--mid)}
 .teach-section:last-child{border-bottom:none}
@@ -543,8 +543,8 @@ function openEntry(ds){
   if(ENTRIES[ds]){
     var imgs = Array.isArray(ENTRIES[ds]) ? ENTRIES[ds] : [ENTRIES[ds]];
     var imgHtml = imgs.length > 1
-      ? '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">' + imgs.map(function(src){ return '<img src="'+src+'" alt="" style="width:100%;height:auto;display:block">'; }).join('') + '</div>'
-      : '<img src="'+imgs[0]+'" alt="" style="width:100%;height:auto;display:block">';
+      ? '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">' + imgs.map(function(src){ return '<img src="'+src+'" alt="">'; }).join('') + '</div>'
+      : '<img src="'+imgs[0]+'" alt="">';
     body.innerHTML='<div style="max-width:680px;width:100%">'+capHtml+imgHtml+'</div>';
   } else {
     body.innerHTML='<div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);text-align:center;padding:80px 0">coming soon</div>';
