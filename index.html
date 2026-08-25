@@ -51,6 +51,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
   .ui-counter{top:20px;right:20px}
   .ui-name{top:20px;left:20px}
   .caption{left:24px;right:24px;bottom:28px}
+  .album-row{flex-direction:column!important;gap:20px!important}
+  .album-player iframe{width:100%!important;max-width:350px}
 }
 
 .overlay-full{position:fixed;inset:0;z-index:500;display:none;flex-direction:column;background:var(--bg)}
@@ -151,9 +153,6 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
       The Great Experiment — IFC Center<br>
       Beam Me Up Sulu — Tribeca<br>
       Boy From St. Croix — Austin Film Festival
-      <div style="margin-top:20px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,244,240,.35)">Releases</div>
-      Moon Set, Moon Rise — Futura Resistenza (3rd repress)<br>
-      Quiet Scenes From Tokyo — Faitiche (solo, out November)
     </div>
     <div class="sub" style="margin-top:24px;cursor:pointer" onclick="event.stopPropagation();openOverlay('cvOverlay')">Full CV →</div>
   </div>
@@ -167,14 +166,20 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
 
 <!-- 04 FAITICHE TEXT -->
 <div class="panel panel-text" data-dark="0">
-  <div class="eyebrow">Album — Faitiche, Berlin 2026</div>
-  <h2>Quiet Scenes<br>From Tokyo</h2>
-  <p>Faitiche is delighted to present the debut solo album by cellist, sound artist, and composer Topu Lyo: &ldquo;Quiet Scenes From Tokyo&rdquo; brings together sixteen miniatures for solo cello and tape echo that oscillate between abstract drones and rhythmic pizzicato sketches &ndash; all recorded at Topu&rsquo;s Tokyo apartment. The constant traffic noise from a nearby highway has become an accompanying soundtrack for his compositions and can be heard on the recordings. Topu&rsquo;s playing is marked by a distinctive idiom oriented more towards abstract electronic studio effects than classical technique. Releases November 6th.</p>
-  <p>Sixteen miniatures for solo cello and Roland 301 Space Echo. The tape used only at the very end — a final pass through mixing. Everything else live.</p>
-  <p>Extended technique replicating electronic phenomena acoustically: portamento, filter sweeps, granular texture, noise.</p>
-  <p>Quiet Scenes from Tokyo, but the juxtaposition couldn&rsquo;t be further from the truth. I lived across from a six-story highway, and the highway symbolized a lot of interpersonal stress I was feeling at the time. I had to turn the highway into the ocean. I had to turn stress into freedom.</p>
-  <iframe style="border: 0; width: 100%; max-width: 460px; height: 120px; margin-top: 20px" src="https://bandcamp.com/EmbeddedPlayer/album=1414170830/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://topulyo.bandcamp.com/album/quiet-scenes-from-tokyo-2">quiet scenes from tokyo by topu lyo</a></iframe>
-  <div class="credit-line">Forthcoming on Faitiche<br>Label of Jan Jelinek</div>
+  <div class="album-row" style="display:flex;gap:48px;align-items:center;max-width:100%">
+    <div style="flex:1;min-width:0">
+      <div class="eyebrow">Album — Faitiche, Berlin 2026</div>
+      <h2>Quiet Scenes<br>From Tokyo</h2>
+      <p>Faitiche is delighted to present the debut solo album by cellist, sound artist, and composer Topu Lyo: &ldquo;Quiet Scenes From Tokyo&rdquo; brings together sixteen miniatures for solo cello and tape echo that oscillate between abstract drones and rhythmic pizzicato sketches &ndash; all recorded at Topu&rsquo;s Tokyo apartment. The constant traffic noise from a nearby highway has become an accompanying soundtrack for his compositions and can be heard on the recordings. Topu&rsquo;s playing is marked by a distinctive idiom oriented more towards abstract electronic studio effects than classical technique. Releases November 6th.</p>
+      <p>Sixteen miniatures for solo cello and Roland 301 Space Echo. The tape used only at the very end — a final pass through mixing. Everything else live.</p>
+      <p>Extended technique replicating electronic phenomena acoustically: portamento, filter sweeps, granular texture, noise.</p>
+      <p>Quiet Scenes from Tokyo, but the juxtaposition couldn&rsquo;t be further from the truth. I lived across from a six-story highway, and the highway symbolized a lot of interpersonal stress I was feeling at the time. I had to turn the highway into the ocean. I had to turn stress into freedom.</p>
+      <div class="credit-line">Forthcoming on Faitiche<br>Label of Jan Jelinek</div>
+    </div>
+    <div class="album-player" style="flex-shrink:0">
+      <iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1414170830/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://topulyo.bandcamp.com/album/quiet-scenes-from-tokyo-2">quiet scenes from tokyo by topu lyo</a></iframe>
+    </div>
+  </div>
 </div>
 
 <!-- 05 FAITICHE BLUR -->
