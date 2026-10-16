@@ -56,7 +56,9 @@ html { overflow-x: clip; } /* 横幅いっぱいの写真で横にずれない�
 .list li { grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1.1rem 0; font-size: 1rem; }
 main.works-page { max-width: 960px; }
 .list li.work { display: block; padding: 0; }
-.work-head { grid-template-columns: 1fr 1fr 1rem; gap: 1.5rem; padding: 1.1rem 0; }
+.work-head { position: relative; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; padding: 1.1rem 0; } /* 右の文字を写真の左はしにそろえる */
+.work-head .d { padding-right: 2rem; }
+.work-head .mark { position: absolute; right: 0; top: 50%; margin-top: -.35em; }
 .work-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; } /* 文章が長くても左右半分ずつ */
 .work-inner:not(:has(.work-photo)) { grid-template-columns: minmax(0, 1fr); } /* 写真がない仕事は文章だけ */
 .work-inner:not(:has(.work-photo)) .work-text { max-width: 640px; }

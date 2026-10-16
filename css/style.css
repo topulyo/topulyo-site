@@ -73,7 +73,8 @@ main h2 { text-align: center; font-weight: 200; letter-spacing: .04em; color: #d
 .rate-sub { color: var(--dim); font-size: .9em; margin-top: 1em; }
 .rates { list-style: none; margin-top: .4em; }
 .rates li { display: flex; justify-content: space-between; gap: 1rem; padding: .35em 0; border-bottom: 1px solid rgba(255,255,255,.08); }
-.rates small { color: var(--dim); font-size: .85em; margin-left: .4em; }
+.rates li span:last-child { text-align: right; }
+.rates small { display: block; color: var(--dim); font-size: .8em; line-height: 1.4; } /* save の金額は金額の下に */
 .rate-note { color: var(--dim); font-size: .9em; margin-top: 1.4em; }
 .text .rate-head + .rate-sub, .text .rates + .rate-head, .text .rates + .rate-sub { margin-top: 1.4em; }
 .closing { border-top: 1px solid rgba(255,255,255,.12); }
@@ -109,6 +110,7 @@ main h2 { text-align: center; font-weight: 200; letter-spacing: .04em; color: #d
 .work-head .mark::after { transform: rotate(90deg); }
 .work.open .mark::after { transform: rotate(0); }
 .work-head:hover .t { color: #f0f0f0; }
+.work-head:focus:not(:focus-visible) { outline: none; } /* 押したときの青い枠を出さない */
 .work-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s ease; }
 .work.open .work-body { grid-template-rows: 1fr; }
 .work-inner { overflow: hidden; display: grid; }
