@@ -1,0 +1,169 @@
+/* =========================================
+   共通（PC・スマホどちらにも効く）
+   色・フォントなど。大きさや位置は
+   pc.css / mobile.css に分けています
+   ========================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0b0b0b;
+  --text: #b8b8b8;      /* 薄グレー */
+  --dim: #6e6e6e;
+  --en: "Outfit", sans-serif;
+  --ja: "Zen Kaku Gothic New", sans-serif;
+}
+html, body { background: var(--black); color: var(--text); }
+body {
+  font-family: var(--en), var(--ja);
+  font-weight: 300;
+  line-height: 1.9;
+  letter-spacing: .04em;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity .9s ease;
+}
+body.ready { opacity: 1; }
+body.leaving { opacity: 0; transition-duration: .5s; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ----- トップ（FV） ----- */
+.fv {
+  position: relative; overflow: hidden; height: 100vh; height: 100svh;
+  background-color: var(--black);
+  background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+.fv::after { /* 写真の下のほうを少し暗くして、文字を読みやすく */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 50%);
+}
+.fv-name {
+  position: absolute;
+  font-weight: 200; line-height: 1; letter-spacing: .01em;
+  padding-bottom: .22em; /* y の下が切れないように */
+  z-index: 2; color: #ececec; text-shadow: 0 0 24px rgba(0,0,0,.4);
+}
+.fv-nav { position: absolute; z-index: 2; display: flex; }
+.fv-nav a { color: #ececec; text-shadow: 0 0 12px rgba(0,0,0,.7), 0 0 3px rgba(0,0,0,.5); }
+.fv-nav a, .menu a { letter-spacing: .12em; color: #9a9a9a; transition: color .4s; }
+.fv-nav a:hover, .menu a:hover, .menu a.now { color: #f0f0f0; }
+
+/* ----- 中のページ（写真背景） ----- */
+.page-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background-color: var(--black);
+  background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+.page-bg::after { /* 文字が読みやすいように暗くする */
+  content: ""; position: absolute; inset: 0;
+  background: rgba(0,0,0,var(--shade, .55));
+}
+header.menu { position: fixed; top: 0; left: 0; right: 0; z-index: 10; display: flex; }
+header.menu .name { font-weight: 300; color: #e6e6e6; }
+header.menu nav { display: flex; }
+main { margin: 0 auto; }
+main h2 { text-align: center; font-weight: 200; letter-spacing: .04em; color: #d6d6d6; }
+.lead { color: #dcdcdc; font-weight: 300; }
+.text p + p { margin-top: 1.1em; }
+.sub { font-weight: 400; letter-spacing: .12em; color: #8a8a8a; }
+.photo { height: auto; } /* 写真は切らずにそのまま */
+.topic { font-weight: 400; color: #d6d6d6; letter-spacing: .06em; } /* teaching の小見出し */
+.tagline { color: var(--dim); letter-spacing: .04em; } /* teaching の副題 */
+.rate-head { color: #dcdcdc; margin-top: 1.6em; }
+.rate-head:first-child { margin-top: 0; }
+.rate-sub { color: var(--dim); font-size: .9em; margin-top: 1em; }
+.rates { list-style: none; margin-top: .4em; }
+.rates li { display: flex; justify-content: space-between; gap: 1rem; padding: .35em 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+.rates small { color: var(--dim); font-size: .85em; margin-left: .4em; }
+.rate-note { color: var(--dim); font-size: .9em; margin-top: 1.4em; }
+.text .rate-head + .rate-sub, .text .rates + .rate-head, .text .rates + .rate-sub { margin-top: 1.4em; }
+.closing { border-top: 1px solid rgba(255,255,255,.12); }
+.place { color: var(--dim); letter-spacing: .12em; }
+.link { border-bottom: 1px solid #555; transition: color .4s, border-color .4s; }
+.link:hover { color: #f0f0f0; border-color: #f0f0f0; }
+
+/* 日記 */
+.entry { border-top: 1px solid rgba(255,255,255,.12); }
+.entry time { color: var(--dim); letter-spacing: .2em; }
+.entry h3 { font-family: var(--ja); font-weight: 400; color: #dadada; }
+.entry p { font-family: var(--ja); margin-bottom: 1em; }
+
+/* journal（写真を並べる） */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); }
+.gallery figure { aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; }
+.gallery img { max-width: 100%; max-height: 100%; width: auto; height: auto; } /* 切らずにそのまま */
+
+/* works */
+.list { list-style: none; }
+.list li { display: grid; border-top: 1px solid rgba(255,255,255,.12); }
+.list .t { color: #dcdcdc; }
+.list .d { color: var(--dim); }
+/* クリックで開く仕事の欄 */
+.work-head {
+  display: grid; width: 100%; align-items: baseline; text-align: left;
+  background: none; border: 0; color: inherit; font: inherit; letter-spacing: inherit; cursor: pointer;
+}
+.work-head .mark { position: relative; width: .7em; height: .7em; justify-self: end; }
+.work-head .mark::before, .work-head .mark::after { /* ＋ → − */
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #888; transition: transform .4s;
+}
+.work-head .mark::after { transform: rotate(90deg); }
+.work.open .mark::after { transform: rotate(0); }
+.work-head:hover .t { color: #f0f0f0; }
+.work-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s ease; }
+.work.open .work-body { grid-template-rows: 1fr; }
+.work-inner { overflow: hidden; display: grid; }
+.work-text p { margin-bottom: 1.2em; }
+.work-photo { aspect-ratio: 4/3; background: #1a1a1a; }
+.work-photo:has(img) { aspect-ratio: auto; background: none; } /* 写真が入ったら切らずにそのまま */
+.work-photo img { width: 100%; height: auto; }
+.yt { display: block; color: var(--dim); transition: color .4s; } /* サムネを大きく、題名はその下 */
+.yt .yt-title { display: block; margin-top: .6rem; font-size: .85em; }
+.yt:hover { color: #f0f0f0; }
+.yt-thumb { position: relative; display: block; width: 100%; aspect-ratio: 16/9; background: #1a1a1a; overflow: hidden; }
+.yt-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.yt-thumb::after { /* ▶ のしるし */
+  content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-35%, -50%);
+  border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent rgba(255,255,255,.8);
+}
+
+/* live footage の動画（押すと YouTube へ） */
+.yt-row { display: grid; }
+.yt-card { display: block; color: var(--dim); transition: color .4s; }
+.yt-card:hover { color: #f0f0f0; }
+.yt-card .yt-thumb { width: 100%; display: block; overflow: hidden; }
+.yt-card .yt-thumb img { transition: opacity .4s; }
+.yt-card:hover .yt-thumb img { opacity: .75; }
+.yt-card .yt-title { display: block; text-align: center; letter-spacing: .06em; }
+.band-site { text-align: center; color: var(--dim); letter-spacing: .08em; }
+
+/* quiet scenes from tokyo */
+.album { display: grid; }
+.album-text .intro { color: #dcdcdc; } /* 最初の紹介文は少し明るく */
+.album-text .note { color: #dcdcdc; letter-spacing: .14em; font-size: .85em; margin-top: 1.8em; }
+.buy { color: var(--dim); letter-spacing: .08em; margin-top: 2.2rem; font-size: .9rem; }
+.album img { width: 100%; height: auto; }
+
+/* live footage */
+.sky-photo { position: relative; background: #d8d8d8; } /* 背景色は写真の空に近い灰色 */
+.sky-text { color: #111; font-weight: 400; text-align: center; }
+.lf-name { color: #2f6aa8; } /* 文の頭の Live footage だけブルー */
+.sky-text p.credit { margin-top: 1.4em; font-size: .8em; letter-spacing: .08em; } /* 写真のクレジット */
+.sky-text p.credit, .anim-3 .sky-text p.credit.rv { opacity: .6; } /* アニメーション後もうすいまま */
+.sky-text p + p { margin-top: .9em; }
+
+.videos { display: grid; }
+.videos .ph { aspect-ratio: 16/9; background: #1a1a1a; display: grid; place-items: center; color: #444; font-size: .8rem; }
+.videos video, .videos iframe { width: 100%; aspect-ratio: 16/9; border: 0; display: block; background: #000; }
+.videos figcaption { color: var(--dim); }
+
+footer { text-align: center; color: #555; letter-spacing: .2em; }
+
+/* ----- スクロールで出すアニメーション ----- */
+/* 1：ふわっと浮かび上がる */
+.rv { opacity: 0; transform: translateY(18px); transition: opacity 1.2s ease, transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.rv.in { opacity: 1; transform: none; }
+/* 3：行ごとに下からせり上がる（文章は .m の窓の中で .w が上がる） */
+.anim-3 .rv:has(.w) { opacity: 1; transform: none; }
+.m { display: inline-block; overflow: hidden; vertical-align: top; }
+.m .w { display: inline-block; transform: translateY(105%); transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+.in .m .w { transform: none; }

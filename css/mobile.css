@@ -1,0 +1,90 @@
+/* =========================================
+   スマホ版（画面の幅が 767px 以下のとき）
+   ========================================= */
+
+/* ----- トップ（FV） ----- */
+.fv { background-image: url(../images/home/mobile.jpg); }
+.fv-name { left: 20px; bottom: 3vh; font-size: 2.8rem; }
+.fv-nav {
+  right: 20px; bottom: calc(3vh + .9rem);
+  flex-direction: column; align-items: flex-end; gap: .35rem;
+}
+.fv-nav a { font-size: .72rem; }
+
+/* ----- 中のページ ----- */
+header.menu {
+  justify-content: space-between; align-items: center;
+  padding: 1.1rem 20px 1.6rem;
+  background: linear-gradient(rgba(11,11,11,.9), rgba(11,11,11,0));
+}
+header.menu .name { position: relative; z-index: 2; font-size: 1.15rem; }
+
+/* 右上の三本線ボタン（押すと × に変わる） */
+.menu-btn {
+  position: relative; z-index: 2; width: 28px; height: 20px;
+  background: none; border: 0; cursor: pointer;
+}
+.menu-btn span {
+  position: absolute; left: 0; right: 0; height: 1px; background: #d6d6d6;
+  transition: transform .4s, opacity .3s, top .4s;
+}
+.menu-btn span:nth-child(1) { top: 2px; }
+.menu-btn span:nth-child(2) { top: 10px; }
+.menu-btn span:nth-child(3) { top: 18px; }
+.menu-open .menu-btn span:nth-child(1) { top: 10px; transform: rotate(45deg); }
+.menu-open .menu-btn span:nth-child(2) { opacity: 0; }
+.menu-open .menu-btn span:nth-child(3) { top: 10px; transform: rotate(-45deg); }
+
+/* 開いたときのメニュー（画面いっぱい） */
+header.menu nav {
+  position: fixed; inset: 0; z-index: 1;
+  flex-direction: column; justify-content: center; gap: 1.6rem;
+  padding: 0 20px;
+  background: var(--black);
+  opacity: 0; visibility: hidden; transition: opacity .5s, visibility .5s;
+}
+.menu-open header.menu nav { opacity: 1; visibility: visible; }
+header.menu nav a { font-size: 1.15rem; }
+.menu-open { overflow: hidden; } /* 開いている間は後ろが動かないように */
+
+main { padding: 6.5rem 20px 4rem; }
+main h2 { font-size: 1.9rem; line-height: 1.25; margin-bottom: 2rem; }
+.lead { font-size: 1.1rem; margin-bottom: 1.5rem; }
+.text { font-size: .95rem; }
+.sub { font-size: .78rem; margin: 2.8rem 0 .8rem; }
+
+.photo { width: 100%; margin-bottom: 2rem; }
+.gallery { grid-template-columns: repeat(3, 1fr); gap: 2rem 1rem; }
+.sky-photo { display: flex; flex-direction: column; margin: 0 -20px 3rem; background: none; } /* 写真が上、文章が下 */
+.sky-photo img { order: -1; width: 100%; }
+.sky-text { padding: 1.8rem 20px 0; color: var(--text); font-weight: 300; font-size: .9rem; line-height: 1.85; }
+.yt-row { grid-template-columns: 1fr; gap: 2rem; }
+.yt-card .yt-title { font-size: .85rem; margin-top: .6rem; }
+.band-site { font-size: .85rem; margin-top: 2.8rem; }
+.tagline { font-size: .9rem; margin: -.8rem 0 1.6rem; }
+.topic { font-size: 1rem; margin: 2.4rem 0 .6rem; }
+.closing { margin-top: 2.8rem; padding-top: 2rem; }
+.place { font-size: .8rem; margin-top: 1.6rem; }
+
+.entry { padding: 2rem 0; }
+.entry time { font-size: .78rem; }
+.entry h3 { font-size: 1.05rem; margin: .3rem 0 .8rem; }
+.entry p { font-size: .9rem; }
+
+.list li { grid-template-columns: 1fr; gap: .1rem; padding: 1rem 0; font-size: .92rem; }
+.list .d { font-size: .82rem; }
+.list li.work { display: block; padding: 0; }
+.work-head { grid-template-columns: 1fr 1rem; gap: .1rem 1rem; padding: 1rem 0; }
+.work-head .d { grid-row: 2; }
+.work-head .mark { grid-row: 1 / 3; align-self: center; }
+.work-inner { grid-template-columns: 1fr; }
+.work-photo { order: -1; margin: .3rem 0 1.4rem; } /* 写真 → 文章 → YouTube の順 */
+.work-text { padding-bottom: 2rem; font-size: .9rem; }
+
+.album { grid-template-columns: 1fr; gap: 2.2rem; }
+.album .cover-b { order: 1; } /* 文章の下へ */
+
+.videos { grid-template-columns: 1fr; gap: 2rem; }
+.videos figcaption { font-size: .8rem; margin-top: .5rem; }
+
+footer { font-size: .65rem; padding: 2.5rem 0 1.5rem; }

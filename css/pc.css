@@ -1,0 +1,73 @@
+/* =========================================
+   PC版（画面の幅が 768px 以上のとき）
+   ========================================= */
+
+/* ----- トップ（FV） ----- */
+.fv { background-image: url(../images/home/pc.jpg); }
+.fv-name { left: 3rem; bottom: 4vh; font-size: clamp(3.5rem, 6vw, 5rem); }
+.fv-nav {
+  right: 3rem; bottom: 7vh;
+  flex-direction: column; align-items: flex-end; gap: .5rem;
+}
+.fv-nav a { font-size: .85rem; }
+
+/* ----- 中のページ ----- */
+header.menu { justify-content: space-between; align-items: center; padding: 1.8rem 3rem; }
+header.menu .name { font-size: 1.3rem; }
+.menu-btn { display: none; } /* 三本線はスマホだけ */
+header.menu nav { gap: 1.6rem; }
+header.menu nav a { font-size: .85rem; }
+main { max-width: 760px; padding: 10rem 3rem 6rem; }
+main.wide { max-width: 1200px; }
+main h2 { font-size: 2.6rem; margin-bottom: 3rem; }
+.lead { font-size: 1.25rem; margin-bottom: 2rem; }
+.text { font-size: 1rem; }
+.sub { font-size: .85rem; margin: 3.5rem 0 1rem; }
+
+.photo { width: 580px; margin-bottom: 3rem; }
+.gallery { gap: 4rem 2.5rem; }
+.sky-photo { width: 100vw; margin: 0 0 4rem calc(50% - 50vw); } /* 画面の横幅いっぱい */
+.sky-photo img { width: 100%; }
+html { overflow-x: clip; } /* 横幅いっぱいの写真で横にずれないように */
+/* live footage：いちばん上から写真。メニューは写真の上に黒っぽい文字で */
+.live-page main { padding-top: 0; }
+.live-page main h2 { display: none; } /* 右上のメニューで今のページがわかるので、タイトルは出さない */
+.live-page header.menu { position: absolute; }
+.live-page header.menu .name { color: #111; }
+.live-page header.menu nav a { color: #444; }
+.live-page header.menu nav a:hover, .live-page header.menu nav a.now { color: #000; }
+.live-page .sky-text { padding-top: 6.2rem; line-height: 1.65; }
+.live-page .sky-text p + p { margin-top: .7em; }
+.sky-text { position: absolute; top: 0; left: 0; right: 0; padding: 3.5vw 6vw 0; max-width: 1100px; margin: 0 auto; font-size: clamp(.8rem, 1.05vw, 1rem); line-height: 1.75; }
+.yt-row { grid-template-columns: repeat(4, 1fr); gap: 1.6rem; }
+.yt-card .yt-title { font-size: .8rem; margin-top: .7rem; }
+.band-site { font-size: .85rem; margin-top: 3.5rem; }
+.tagline { font-size: .95rem; margin: -1.2rem 0 2rem; }
+.text .rates { max-width: 420px; }
+.topic { font-size: 1.05rem; margin: 3rem 0 .8rem; }
+.closing { margin-top: 3.5rem; padding-top: 2.5rem; }
+.place { font-size: .85rem; margin-top: 2rem; }
+
+.entry { padding: 2.5rem 0; }
+.entry time { font-size: .85rem; }
+.entry h3 { font-size: 1.15rem; margin: .4rem 0 1rem; }
+.entry p { font-size: .95rem; }
+
+.list li { grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1.1rem 0; font-size: 1rem; }
+main.works-page { max-width: 960px; }
+.list li.work { display: block; padding: 0; }
+.work-head { grid-template-columns: 1fr 1fr 1rem; gap: 1.5rem; padding: 1.1rem 0; }
+.work-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; } /* 文章が長くても左右半分ずつ */
+.work-inner:not(:has(.work-photo)) { grid-template-columns: minmax(0, 1fr); } /* 写真がない仕事は文章だけ */
+.work-inner:not(:has(.work-photo)) .work-text { max-width: 640px; }
+.work-text { padding: .5rem 0 2.5rem; font-size: .95rem; }
+.work-photo { margin: .5rem 0 2.5rem; }
+
+.album-page { max-width: 1000px; }
+.album { grid-template-columns: 1fr 1fr; gap: 3.5rem 1.5rem; }
+.album-text { grid-column: 1 / -1; max-width: 640px; }
+
+.videos { grid-template-columns: 1fr 1fr; gap: 2.5rem 1.5rem; }
+.videos figcaption { font-size: .85rem; margin-top: .6rem; }
+
+footer { font-size: .75rem; padding: 3rem 0 2rem; }
