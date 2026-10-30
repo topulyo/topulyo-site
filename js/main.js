@@ -61,8 +61,8 @@ document.querySelectorAll('header.menu').forEach(header => {
 (() => {
   const mode = new URLSearchParams(location.search).get('anim') || document.body.dataset.anim;
   if (!mode || !document.body.classList.contains('reveal-page')) return;
-  const texts = [...document.querySelectorAll('main .lead, main .tagline, main .topic, main .text > p, main .rate-head, main .rate-sub, main .rate-note, main .buy, main .sky-text > p, main .band-site')];
-  const others = [...document.querySelectorAll('main h2, main img, main .rates li')].filter(el => !el.closest('.sky-photo')); // live footage の大きい写真は最初から出す
+  const texts = [...document.querySelectorAll('main .lead, main .tagline, main .topic, main .text > p, main .bullets li, main .rate-note, main .buy, main .sky-text > p, main .band-site')];
+  const others = [...document.querySelectorAll('main h2, main img, main .rate-table')].filter(el => !el.closest('.sky-photo')); // live footage の大きい写真は最初から出す
   document.body.classList.add('anim-' + mode);
 
   // 3：単語ごとに「窓」をつけて、行ごとに時間差で下から出す

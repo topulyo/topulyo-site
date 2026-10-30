@@ -68,17 +68,16 @@ main h2 { text-align: center; font-weight: 200; letter-spacing: .04em; color: #d
 .photo { height: auto; } /* 写真は切らずにそのまま */
 .topic { font-weight: 400; color: #d6d6d6; letter-spacing: .06em; } /* teaching の小見出し */
 .tagline { color: var(--dim); letter-spacing: .04em; } /* teaching の副題 */
-.rate-head { color: #dcdcdc; margin-top: 1.6em; }
-.rate-head:first-child { margin-top: 0; }
-.rate-sub { color: var(--dim); font-size: .9em; margin-top: 1em; }
-.rates { list-style: none; margin-top: .4em; }
-.rates li { display: flex; justify-content: space-between; gap: 1rem; padding: .35em 0; border-bottom: 1px solid rgba(255,255,255,.08); }
-.rates li span:last-child { text-align: right; }
-.rates small { display: block; color: var(--dim); font-size: .8em; line-height: 1.4; } /* save の金額は金額の下に */
 .rate-note { color: var(--dim); font-size: .9em; margin-top: 1.4em; }
-.text .rate-head + .rate-sub, .text .rates + .rate-head, .text .rates + .rate-sub { margin-top: 1.4em; }
-.closing { border-top: 1px solid rgba(255,255,255,.12); }
-.place { color: var(--dim); letter-spacing: .12em; }
+.bullets { list-style: none; margin: 1.1em 0; }
+.bullets li { padding: .7em 0; border-top: 1px solid rgba(255,255,255,.08); }
+.bullets li:last-child { border-bottom: 1px solid rgba(255,255,255,.08); }
+.bullets b { font-weight: 400; color: #dcdcdc; }
+.rate-table { width: 100%; margin-top: 1.4em; border-collapse: collapse; font-weight: 300; }
+.rate-table th, .rate-table td { padding: .7em .5em; text-align: right; font-weight: 300; border-bottom: 1px solid rgba(255,255,255,.08); }
+.rate-table th:first-child { padding-left: 0; text-align: left; }
+.rate-table thead th { color: var(--dim); font-size: .85em; line-height: 1.4; vertical-align: bottom; }
+.rate-table small { display: block; font-size: .85em; }
 .link { border-bottom: 1px solid #555; transition: color .4s, border-color .4s; }
 .link:hover { color: #f0f0f0; border-color: #f0f0f0; }
 

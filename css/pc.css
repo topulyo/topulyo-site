@@ -43,10 +43,7 @@ html { overflow-x: clip; } /* 横幅いっぱいの写真で横にずれない�
 .yt-card .yt-title { font-size: .8rem; margin-top: .7rem; }
 .band-site { font-size: .85rem; margin-top: 3.5rem; }
 .tagline { font-size: .95rem; margin: -1.2rem 0 2rem; }
-.text .rates { max-width: 420px; }
 .topic { font-size: 1.05rem; margin: 3rem 0 .8rem; }
-.closing { margin-top: 3.5rem; padding-top: 2.5rem; }
-.place { font-size: .85rem; margin-top: 2rem; }
 
 .entry { padding: 2.5rem 0; }
 .entry time { font-size: .85rem; }
